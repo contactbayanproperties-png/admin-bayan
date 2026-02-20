@@ -1,0 +1,96 @@
+================================================================================
+                    ADMIN SETUP (Netlify + Decap CMS)
+================================================================================
+
+STEP 1: PUSH TO GITHUB
+----------------------
+1. Create a new repository on GitHub
+2. Push all these files to the main branch
+
+STEP 2: DEPLOY TO NETLIFY
+-------------------------
+1. Go to https://app.netlify.com
+2. Click "Add new site" → "Import an existing project"
+3. Connect your GitHub account and select the repository
+4. Deploy settings:
+   - Build command: (leave empty)
+   - Publish directory: . (dot)
+5. Click "Deploy site"
+
+STEP 3: ENABLE IDENTITY (Required for CMS)
+------------------------------------------
+1. Go to Site settings → Identity
+2. Click "Enable Identity"
+3. Under Registration → Set to "Invite only" (recommended for security)
+4. Under Services → Enable "Git Gateway"
+
+STEP 4: INVITE ADMIN USERS
+--------------------------
+1. Go to Identity tab
+2. Click "Invite users"
+3. Enter email addresses of people who should access the admin
+
+STEP 5: ACCESS THE ADMIN
+------------------------
+1. Visit: https://your-site-name.netlify.app/admin
+2. Sign up / Log in with the invited email
+3. You can now:
+   - Add new property listings
+   - Edit existing listings
+   - Upload/change photos
+   - Set Available/Unavailable status
+   - Update prices and text
+
+================================================================================
+                           FILE STRUCTURE
+================================================================================
+
+PROJECT ROOT
+├── admin/
+│   ├── config.yml          ← CMS configuration
+│   └── index.html          ← CMS entry point
+├── assets/
+│   ├── css/styles.css
+│   ├── img/                ← Property images
+│   │   └── uploads/        ← Images uploaded via CMS
+│   └── js/app.js           ← Main application logic
+├── content/
+│   └── listings.json       ← Property data (edited via CMS)
+├── *.html                  ← Website pages
+├── _redirects              ← Netlify URL redirects
+├── netlify.toml            ← Netlify configuration
+└── ADMIN-SETUP.txt         ← This file
+
+================================================================================
+                           CMS CAPABILITIES
+================================================================================
+
+Via the admin panel at /admin, you can manage:
+
+✓ Property reference (ID)
+✓ Title
+✓ Zone (Casablanca, Dar Bouazza, Bouskoura, Benslimane)
+✓ Type (Appartement, Villa, Studio, Terrain, Bureau)
+✓ Operation (Location, Vente)
+✓ Price in MAD
+✓ Furnished status (Meublé)
+✓ Charges included
+✓ Availability status (Disponible)
+✓ Bedrooms count
+✓ Bathrooms count
+✓ Surface area (m²)
+✓ Images (multiple upload)
+✓ Highlights/features
+
+================================================================================
+                              NOTES
+================================================================================
+
+- Changes made in the CMS are saved automatically to GitHub
+- The website updates automatically after each change (within ~1 minute)
+- Images should be optimized before upload for best performance
+- The CMS uses Editorial Workflow - changes are "drafts" until published
+
+Contact: If you need help, refer to https://decapcms.org/docs
+
+================================================================================

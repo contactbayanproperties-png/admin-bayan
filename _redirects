@@ -1,0 +1,7 @@
+# Netlify redirects for Bayan Properties
+
+# Admin CMS SPA redirect
+/admin/*    /admin/index.html   200
+
+# Optional: Clean property URLs
+/property/:id    /property.html?id=:id    200

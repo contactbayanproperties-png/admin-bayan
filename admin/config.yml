@@ -1,0 +1,44 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "assets/img/uploads"
+public_folder: "/assets/img/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - label: "Biens"
+    name: "biens"
+    files:
+      - label: "Liste des biens"
+        name: "liste_biens"
+        file: "content/listings.json"
+        format: "json"
+        fields:
+          - label: "Biens"
+            name: "items"
+            widget: "list"
+            summary: "{{fields.id}} — {{fields.title}}"
+            fields:
+              - { label: "Référence (ID)", name: "id", widget: "string" }
+              - { label: "Titre", name: "title", widget: "string" }
+              - { label: "Zone", name: "zone", widget: "select", options: ["Casablanca","Dar Bouazza","Bouskoura","Benslimane"] }
+              - { label: "Type", name: "type", widget: "select", options: ["Appartement","Villa","Studio","Terrain","Bureau"] }
+              - { label: "Opération", name: "operation", widget: "select", options: ["Location","Vente"] }
+              - { label: "Prix (MAD)", name: "price_mad", widget: "number", value_type: "int", min: 0 }
+              - { label: "Meublé", name: "meuble", widget: "boolean", default: false }
+              - { label: "Charges incluses", name: "charges_incluses", widget: "boolean", default: false }
+              - { label: "Disponible (Dispo)", name: "dispo", widget: "boolean", default: true }
+              - { label: "Chambres", name: "bedrooms", widget: "number", value_type: "int", min: 0, default: 0 }
+              - { label: "Salles de bain", name: "bathrooms", widget: "number", value_type: "int", min: 0, default: 0 }
+              - { label: "Surface (m²)", name: "surface_m2", widget: "number", value_type: "int", min: 0, default: 0 }
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                field: { label: "Image", name: "image", widget: "image" }
+              - label: "Points forts"
+                name: "highlights"
+                widget: "list"
+                required: false
+                field: { label: "Point", name: "point", widget: "string" }

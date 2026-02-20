@@ -1,0 +1,5 @@
+# Upload Directory
+
+This folder stores images uploaded via the Decap CMS admin panel.
+
+Files added here will be available at `/assets/img/uploads/filename.jpg`.
